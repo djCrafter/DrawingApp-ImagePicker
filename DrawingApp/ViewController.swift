@@ -48,7 +48,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var viewBack: MyView!
     
     @IBAction func changeImageClick(_ sender: Any) {
-        viewBack.isCustomImage = true
         goPicker()
     }
     
@@ -158,6 +157,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         guard let image = info[.originalImage] as? UIImage else {
             fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
         }
+        viewBack.isCustomImage = true
         viewBack.customImage = image
         dismiss(animated: true, completion: nil)
     }
